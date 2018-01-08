@@ -13,16 +13,18 @@ sap.ui.jsview("SYSUI5.view.main", {
 	 * @memberOf controller.main
 	 */
 	createContent: function(oController) {
-		var oPage = new sap.m.Page({
-			title: "{i18n>title}",
-			content: []
+		var mainPage = new sap.m.Page({
+			title: "{i18n>titleMain}",
+			content: [
+				new sap.m.Button({
+					text: "{i18n>buttonServiceLayer}",
+					width: "150px",
+					press:[oController.onPressGoToServiceLayer, oController]
+				})
+				]
 		});
 
-		var app = new sap.m.App("myApp", {
-			initialPage: "oPage"
-		});
-		app.addPage(oPage);
-		return app;
+		return mainPage;
 	}
 
 });
